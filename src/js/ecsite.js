@@ -1,11 +1,10 @@
+//在庫数の確認
 let state = document.querySelectorAll(".item__state");
 let rababanstate = document.querySelectorAll(".rababan__state")
 let rnumber = document.querySelectorAll(".rababan__kazu");
 let rbutton = document.querySelectorAll(".rababan__button")
-console.log(rababanstate)
 for(let i=0;i<state.length;i++){
     let zaiko = state[i].innerHTML;
-    console.log(zaiko)
     if(zaiko=="true"){
         state[i].innerHTML="在庫有"
         state[i].setAttribute("style","color:blue")
@@ -33,16 +32,17 @@ for(let i=0;i<rababanstate.length;i++){
         rababanstate[i].setAttribute("style","color:#ff9500")
     }
 }
-
+//itemページの画像を押したら変更される
 let imglist = document.querySelectorAll(".rababan__imgitem")
 let mainimg = document.querySelector(".rababan__img")
 console.log(imglist)
 for(let i=0;i<imglist.length;i++){
     imglist[i].addEventListener("click",function(){
-        let code = imglist[i].getAttribute("src")
-        mainimg.setAttribute("src",code)
+        let code = imglist[i].getAttribute("src") //変数codeにクリックした画像のsrcを取得する。
+        mainimg.setAttribute("src",code)　//mainimg(一番大きな画像)に先ほど取得したcodeのsrcをsetAttributeする。
     })
 }
+//viewボタンの設定
 let view = document.querySelectorAll(".item__link");
 console.log(view)
 for(let i=9;i<view.length;i++){
@@ -53,11 +53,11 @@ for(let i=9;i<view.length;i++){
         console.log(view[i])
     }
 }
+//viewボタンを押したときのアニメーションの設定
 let button = document.querySelector(".main__viewbutton")
 button.addEventListener("click",function(){
    button.classList.toggle('move')
    if(button.classList.contains('move')==true){
-       console.log("テスト")
     for(let i= 9;i<view.length;i++){
         view[i].setAttribute("style","display:block");
         view[i].classList.add("fadeUp")
